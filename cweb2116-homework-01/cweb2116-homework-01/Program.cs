@@ -1,98 +1,79 @@
 ﻿using System;
 
-class Program
+namespace TaskMenu
 {
-
-    static void Main(string[] args)
+    class Program
     {
-        /*
-         Task one: Output Statement
-         */
-        // Name and favorite color
-        string name = "Emily";
-        string favoriteColor = "Blue";
+        static void Main(string[] args)
+        {
+            bool showMenu = true;
 
-        // Current year
-        const int currentYear = 2024;
+            while (showMenu)
+            {
+                showMenu = MainMenu();
+            }
+        }
 
-        // Output
-        Console.WriteLine("Name: " + name);
-        Console.WriteLine("Favorite Color: " + favoriteColor);
-        Console.WriteLine("Current Year: " + currentYear);
-        Console.ReadLine();
+        private static bool MainMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Main Menu");
+            Console.WriteLine("1. Task One");
+            Console.WriteLine("2. Task Three");
+            Console.WriteLine("3. Task Four");
+            Console.WriteLine("4. Task Five");
+            Console.WriteLine("5. Exit");
+            Console.Write("\nSelect an option: ");
 
+            string userInput = Console.ReadLine();
 
-    }
-}
+            switch (userInput)
+            {
+                case "1":
+                    taskone taskone = new taskone();
+                    break;
+                case "2":
+                    taskthree taskthree = new taskthree();
+                    break;
+                case "3":
+                    taskfour taskfour = new taskfour();
+                    break;
+                case "4":
+                    taskfive taskfive = new taskfive();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please select a valid option.");
+                    Console.ReadKey();
+                    return true;
+            }
+            return false;   
+        }
 
-class Task3
-{
-    public static void DisplayUserInfo()
-    {
-        /*
-         Task three: Output Statement
-         */
-        // Variables
-        int age = 25;
-        decimal heightInMeters = 1.6256m;
-        char favoriteLetter = 'E';
-        bool likesProgramming = true;
+        private static void Option1()
+        {
+            Console.WriteLine("You selected Option 1.");
+            // Add your logic for Option 1 here.
+            Console.ReadKey();
+        }
 
-        // Output
-        Console.WriteLine("Task 3: Variables and User Input");
-        Console.WriteLine("Age: " + age);
-        Console.WriteLine("Height in meters: " + heightInMeters);
-        Console.WriteLine("Favorite letter: " + favoriteLetter);
-        Console.WriteLine("Likes programming: " + likesProgramming);
-        Console.ReadLine();
-    }
-}
+        private static void Option2()
+        {
+            Console.WriteLine("You selected Option 2.");
+            // Add your logic for Option 2 here.
+            Console.ReadKey();
+        }
 
-class CircleArea
-{
-    // Declare a constant for Pi
-    private const double PI = 3.14159;
+        private static void Option3()
+        {
+            Console.WriteLine("You selected Option 3.");
+            // Add your logic for Option 3 here.
+            Console.ReadKey();
+        }
 
-    public static void CalculateAndDisplayArea()
-    {
-        // Radius of the circle
-        double radius = 5.0;
-
-        // Calculate the area using the formula
-        double area = PI * radius * radius;
-
-        // Output
-        Console.WriteLine("Task: Calculate the Area of a Circle");
-        Console.WriteLine("Radius: " + radius);
-        Console.WriteLine("Area of the circle: " + area);
-    }
-}
-
-class DataTypes
-{
-    public static void DisplayData()
-    {
-        // Variables
-        string firstName = "Emily";
-        long cityPopulation = 42088;
-        double temperatureCelsius = 23.5;
-        bool isStudent = true;
-
-        // Output
-        Console.WriteLine("Task 5: Data Types");
-        Console.WriteLine("First Name: " + firstName);
-        Console.WriteLine("City Population: " + cityPopulation);
-        Console.WriteLine("Temperature in Celsius: " + temperatureCelsius);
-        Console.WriteLine("Is Student: " + isStudent);
-    }
-}
-
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        // Call methods from other classes
-        CircleArea.CalculateAndDisplayArea();
+        private static void Exit()
+        {
+            Console.WriteLine("Exiting the program...");
+            Console.ReadKey();
+        }
     }
 }
